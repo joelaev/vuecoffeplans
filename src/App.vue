@@ -18,7 +18,10 @@ import planItem from './components/plan-item.vue';
     </h2>
 
     <div class="plans">
-      <plan-item />
+      <plan-item name="El soltero" gretting-message="hi"/>
+      <plan-item name="El adicto"  gretting-message="bye" />
+      <plan-item name="El viajero" gretting-message="done"/>
+      <plan-item  />
     </div>
   </div>
 </template>

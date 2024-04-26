@@ -4,6 +4,7 @@
       @select="printSelected"
       v-for="plan in plans" 
       :name="plan" v-bind:key="plan" />
+      {{selectedPlan}}
     </div>
 </template>
 
@@ -11,11 +12,13 @@
     import {ref} from 'vue';
     import planPickerItem from './plan-picker-item.vue';
    const plans = ref([
- "el sltero",
- "el adicto", 
- "el viajero",
+ "El sltero",
+ "El adicto", 
+ "El viajero",
  ]);
- const printSelected= (payload)=>
- {console.log(`Se selecciono: ${payload}`);
-}
+ const selectedPlan= ref(null)
+ const printSelected= (playload)=>
+ {
+  selectedPlan.value = playload;
+ }
 </script>

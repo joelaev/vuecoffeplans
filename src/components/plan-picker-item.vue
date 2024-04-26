@@ -13,7 +13,7 @@
 
 <script setup>
 import {ref} from 'vue';
-//creando un evento
+//creando un eventon
 const emit= defineEmits(['select']);
 const props=defineProps({
   name :{
@@ -29,5 +29,5 @@ const select=()=>{
 </script>
 <style scoped>
 .selected-plan{
-  background-color: rgb(197, 88, 10)}
+  background-color: rgb(112, 70, 212)}
 </style>

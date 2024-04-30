@@ -1,33 +1,44 @@
 <template>
-  <div  
-  @click="select"
-  :class="{'selected-plan':selected}"
-      class="plan">
-        <div class="description">
-          <span class="title">
-            {{name}} {{ selected ? "⭐":"" }}
-          </span>
-        </div>
-      </div>
+  <div 
+    @click="select"
+    :class="{'selected-plan': isSelected}" 
+    class="plan">
+    <div class="description">
+      <span class="title">
+        {{ name }}
+      </span>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
-//creando un eventon
-const emit= defineEmits(['select']);
-const props=defineProps({
-  name :{
+import { computed } from 'vue';
+// Creando un evento
+const emit = defineEmits(['select']);
+const props = defineProps({
+  name: {
     type: String,
     required: true,
   },
+  selectedPlan: {
+    type: String
+  },
 });
-const selected = ref (false);
-const select=()=>{
-  selected.value=true
-  emit('select', props.name)
+
+const select = () => {
+  // Detonando el evento
+  emit('select', props.name);
 }
+
+// creando propiedad computada
+const isSelected = computed(() => {
+  return props.name === props.selectedPlan;
+});
+
 </script>
+
 <style scoped>
-.selected-plan{
-  background-color: rgb(112, 70, 212)}
+.selected-plan {
+  background-color: #63dfd0;
+}
 </style>
